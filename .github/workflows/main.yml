@@ -60,7 +60,7 @@ jobs:
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
             sudo su
-            sudo docker stop $(docker ps -a -q) 
-            sudo docker rm $(docker ps -a -q) 
+            sudo docker stop $(sudo docker ps -a -q) 
+            sudo docker rm $(sudo docker ps -a -q) 
             sudo docker pull jinu0125/kookbeetest
             sudo docker run -d -p 80:8080 --name kookbeetest jinu0125/kookbeetest
