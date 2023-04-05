@@ -59,6 +59,7 @@ jobs:
           key: ${{ secrets.GCP_KEY }}
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
+            sudo su
             sudo docker stop $(docker ps -a -q) 
             sudo docker rm $(docker ps -a -q) 
             sudo docker pull jinu0125/kookbeetest
