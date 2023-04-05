@@ -43,10 +43,10 @@ jobs:
         with:
           host: ${{ secrets.GCP_HOST }}
           username: ${{ secrets.GCP_USERNAME }}
-          password: ${{ secrets.GCP_PASSWORD }}
+          key: ${{ secrets.GCP_KEY }}
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
-            docker stop $(docker ps -a -q) 
-            docker rm $(docker ps -a -q) 
-            docker pull <docker_hub_username>/<image_name>
-            docker run -d -p 8080:8080 --name <container_name> <docker_hub_username>/<image_name>
+            sudo docker stop $(docker ps -a -q) 
+            sudo docker rm $(docker ps -a -q) 
+            sudo docker pull jinu0125/kookbeetest
+            sudo docker run -d -p 8080:8080 --name kookbeetest jinu0125/kookbeetest
