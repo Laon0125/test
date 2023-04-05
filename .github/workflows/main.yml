@@ -37,9 +37,11 @@ jobs:
 
       - name: Docker Hub 퍼블리시 # (4)
         run: docker push jinu0125/kookbeetest
+      - name: hhh
+        run: echo ${{ secrets.DOCKER_USERNAME }}
         
       - name: GCP 인스턴스 접속 및 애플리케이션 실행(who) # (5)
-        uses: appleboy/ssh-action@v0.1.6
+        uses: appleboy/ssh-action@v0.1.9
         with:
           host: ${{ secrets.GCP_HOST }}
           username: ${{ secrets.GCP_USERNAME }}
@@ -50,7 +52,7 @@ jobs:
 
 
       - name: GCP 인스턴스 접속 및 애플리케이션 실행 # (5)
-        uses: appleboy/ssh-action@v0.1.6
+        uses: appleboy/ssh-action@v0.1.9
         with:
           host: ${{ secrets.GCP_HOST }}
           username: ${{ secrets.GCP_USERNAME }}
