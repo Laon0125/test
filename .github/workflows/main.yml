@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.GCP_PASSWORD }}
           port: ${{ secrets.GCP_SSH_PORT }}
           script: |
-            docker stop $(docker ps -a -q) 
-            docker rm $(docker ps -a -q) 
-            docker pull jinu0125/kookbeetest
-            docker run -d -p 8080:8080 --name kookbeetest jinu0125/kookbeetest
+            sudo docker stop $(docker ps -a -q) 
+            sudo docker rm $(docker ps -a -q) 
+            sudo docker pull jinu0125/kookbeetest
+            sudo docker run -d -p 8080:8080 --name kookbeetest jinu0125/kookbeetest
