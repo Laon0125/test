@@ -16,11 +16,8 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-        
-      - name: 스프링부트 애플리케이션 install # (1)
-        run: java -version
       
-      - name: 스프링부트 애플리케이션 install # (1)
+      - name: 스프링부트 애플리케이션 install # (0)
         run: ./gradlew clean
 
       - name: 스프링부트 애플리케이션 빌드 # (1)
@@ -39,16 +36,6 @@ jobs:
         run: docker push jinu0125/kookbeetest
       - name: hhh
         run: echo ${{ secrets.DOCKER_USERNAME }}
-        
-      - name: GCP 인스턴스 접속 및 애플리케이션 실행(who) # (5)
-        uses: appleboy/ssh-action@v0.1.9
-        with:
-          host: ${{ secrets.GCP_HOST }}
-          username: ${{ secrets.GCP_USERNAME }}
-          key: ${{ secrets.GCP_KEY }}
-          port: ${{ secrets.GCP_SSH_PORT }}
-          script: whoami
-            
 
 
       - name: GCP 인스턴스 접속 및 애플리케이션 실행 # (5)
